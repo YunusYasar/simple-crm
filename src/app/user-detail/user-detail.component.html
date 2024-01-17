@@ -1,0 +1,54 @@
+<mat-card class="user-detail-header">
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="deleteMenu">
+        <mat-icon>delete_forever</mat-icon>
+    </button>
+    <mat-menu #deleteMenu="matMenu">
+        <button mat-menu-item style="color: red;" (click)="deleteUser();">Delete</button>
+    </mat-menu>
+    <mat-card-content>
+
+        <img src="../../assets/img/profile.png">
+
+        <div class="user-details">
+            <h2>{{ user.firstName}} {{user.lastName }}</h2>
+            {{ user.email }}
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="mt-32">
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="adressMenu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #adressMenu="matMenu">
+        <button mat-menu-item (click)="editMenu();">Edit</button>
+    </mat-menu>
+    <mat-card-header>
+        <mat-card-title>Contact</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <b>Firstname: </b> {{ user.firstName }} <br>
+        <b>Lastname: </b> {{ user.lastName }} <br>
+        <b>Birth-Date: </b> {{ user.birthDate }}<br>
+        <b>E-Mail: </b>{{ user.email }} <br>
+        <b>Street: </b>{{ user.street }} <br>
+        <b>City: </b>{{ user.zipCode }} {{ user.city }}
+    </mat-card-content>
+</mat-card>
+
+<!-- <mat-card class="mt-32">
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="adressMenu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #adressMenu="matMenu">
+        <button mat-menu-item (click)="editAddress();">Edit</button>
+    </mat-menu>
+    <mat-card-header>
+        <mat-card-title>Contact</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <b>E-Mail: </b>{{ user.email }} <br>
+        <b>Street: </b>{{ user.street }} <br>
+        <b>City: </b>{{ user.zipCode }} {{ user.city }}
+    </mat-card-content>
+</mat-card> -->
