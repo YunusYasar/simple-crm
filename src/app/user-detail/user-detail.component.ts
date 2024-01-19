@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Firestore, collection, doc, getDoc, onSnapshot } from '@angular/fire/firestore';
 import { MatCardModule } from '@angular/material/card';
 import { ActivatedRoute } from '@angular/router';
@@ -9,6 +10,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 import { DialogDeleteUserComponent } from '../dialog-delete-user/dialog-delete-user.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
    selector: 'app-user-detail',
@@ -18,6 +22,9 @@ import { DialogDeleteUserComponent } from '../dialog-delete-user/dialog-delete-u
       MatIconModule,
       MatButtonModule,
       MatMenuModule,
+      MatSidenavModule,
+      MatToolbarModule,
+      CommonModule,
    ],
    templateUrl: './user-detail.component.html',
    styleUrl: './user-detail.component.scss',
@@ -25,6 +32,7 @@ import { DialogDeleteUserComponent } from '../dialog-delete-user/dialog-delete-u
 export class UserDetailComponent {
    userId: string = '';
    user: User = new User();
+   birthDate!: Date;
 
    constructor(private route: ActivatedRoute, private firestore: Firestore, public dialog: MatDialog) {}
 
@@ -56,8 +64,11 @@ export class UserDetailComponent {
    editMenu() {
       const dialog = this.dialog.open(DialogEditUserComponent);
       dialog.componentInstance.user = new User(this.user);
+      dialog.componentInstance.userId = this.userId;
    }
    deleteUser() {
       const dialog = this.dialog.open(DialogDeleteUserComponent);
+      dialog.componentInstance.user = new User(this.user);
+      dialog.componentInstance.userId = this.userId;
    }
 }

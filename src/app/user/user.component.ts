@@ -36,6 +36,7 @@ import { RouterLink } from '@angular/router';
 export class UserComponent {
    user: User = new User();
    allUsers: User[] = [];
+   birthDate!: Date;
 
    constructor(public dialog: MatDialog, private firestore: Firestore) {}
    ngOnInit() {

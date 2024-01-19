@@ -15,7 +15,7 @@ export class User {
       this.birthDate = obj ? obj.birthDate : '';
       this.email = obj ? obj.email : '';
       this.street = obj ? obj.street : '';
-      this.zipCode = obj ? obj.zipcode : '';
+      this.zipCode = obj ? obj.zipCode : '';
       this.city = obj ? obj.city : '';
    }
    public toJSON() {
@@ -30,4 +30,12 @@ export class User {
          email: this.email,
       };
    }
+
+   //   public formatDate(timestamp: number): string {
+   //      const date = new Date(timestamp);
+   //      const day = date.getDate().toString().padStart(2, '0');
+   //      const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Monate sind 0-basiert
+   //      const year = date.getFullYear();
+   //      return `${day}.${month}.${year}`;
+   //  }
 }

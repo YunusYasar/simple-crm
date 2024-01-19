@@ -19,6 +19,4 @@ import { MatIconModule } from '@angular/material/icon';
    templateUrl: './app.component.html',
    styleUrl: './app.component.scss',
 })
-export class AppComponent {
-   title = 'simple-crm';
-}
+export class AppComponent {}
